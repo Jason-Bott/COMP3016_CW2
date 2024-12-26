@@ -1,0 +1,135 @@
+﻿  Collider.cpp
+  Laser.cpp
+  OpenGL.cpp
+C:\Users\jason\Downloads\OpenGL\OpenGL\OpenGL.cpp(281,42): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jason\Downloads\OpenGL\OpenGL\OpenGL.cpp(339,54): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  Section31.cpp
+  Ship.cpp
+C:\Users\jason\Downloads\OpenGL\OpenGL\Ship.cpp(99,30): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\jason\Downloads\OpenGL\OpenGL\Ship.cpp(100,30): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\jason\Downloads\OpenGL\OpenGL\Ship.cpp(101,22): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\jason\Downloads\OpenGL\OpenGL\Ship.cpp(102,22): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\jason\Downloads\OpenGL\OpenGL\Ship.cpp(123,30): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\jason\Downloads\OpenGL\OpenGL\Ship.cpp(124,30): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\jason\Downloads\OpenGL\OpenGL\Ship.cpp(125,22): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\jason\Downloads\OpenGL\OpenGL\Ship.cpp(126,22): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\jason\Downloads\OpenGL\OpenGL\Ship.cpp(147,37): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Shuttle.cpp
+C:\Users\jason\Downloads\OpenGL\OpenGL\Shuttle.cpp(58,30): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\jason\Downloads\OpenGL\OpenGL\Shuttle.cpp(59,30): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\jason\Downloads\OpenGL\OpenGL\Shuttle.cpp(60,22): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\jason\Downloads\OpenGL\OpenGL\Shuttle.cpp(61,22): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\jason\Downloads\OpenGL\OpenGL\Shuttle.cpp(95,30): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\jason\Downloads\OpenGL\OpenGL\Shuttle.cpp(96,30): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\jason\Downloads\OpenGL\OpenGL\Shuttle.cpp(97,22): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\jason\Downloads\OpenGL\OpenGL\Shuttle.cpp(98,22): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\jason\Downloads\OpenGL\OpenGL\Shuttle.cpp(149,30): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\jason\Downloads\OpenGL\OpenGL\Shuttle.cpp(150,30): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\jason\Downloads\OpenGL\OpenGL\Shuttle.cpp(151,22): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\jason\Downloads\OpenGL\OpenGL\Shuttle.cpp(152,22): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\jason\Downloads\OpenGL\OpenGL\Shuttle.cpp(173,30): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\jason\Downloads\OpenGL\OpenGL\Shuttle.cpp(174,30): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\jason\Downloads\OpenGL\OpenGL\Shuttle.cpp(175,22): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\jason\Downloads\OpenGL\OpenGL\Shuttle.cpp(176,22): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\jason\Downloads\OpenGL\OpenGL\Shuttle.cpp(224,37): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  stbImageLoader.cpp
+  Generating Code...
+  glad.c
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  OpenGL.vcxproj -> C:\Users\jason\Downloads\OpenGL\x64\Debug\OpenGL.exe
