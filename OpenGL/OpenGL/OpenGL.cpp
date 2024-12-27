@@ -19,6 +19,9 @@
 #include <learnopengl/shader_m.h>
 #include <learnopengl/model.h>
 
+//irrKlang
+#include <irrKlang.h>
+
 //GENERAL
 #include "main.h"
 #include "Shuttle.h"
@@ -29,6 +32,7 @@
 
 using namespace std;
 using namespace glm;
+using namespace irrklang;
 
 //Window
 int windowWidth;
@@ -155,6 +159,9 @@ bool inHyperspace;
 //Hyperspace
 vector<vec3> starPositions;
 
+//Sound Engine
+ISoundEngine* engine;
+
 int main()
 {
     //Initialisation of GLFW
@@ -169,6 +176,13 @@ int main()
     {
         cout << "GLFW Window did not instantiate\n";
         glfwTerminate();
+        return -1;
+    }
+
+    engine = createIrrKlangDevice();
+
+    if (!engine) {
+        cout << "Failed to initialise sound engine\n";
         return -1;
     }
 
@@ -287,6 +301,9 @@ int main()
     while (starPositions.size() < 300) {
         starPositions.push_back(vec3((rand() % 201) - 100.0f, (rand() % 201) - 100.0f, (rand() % 201) - 200.0f));
     }
+
+    //Start background ambiance
+    engine->play2D("media/Sounds/background.wav", true);
 
     //Render loop
     while (glfwWindowShouldClose(window) == false)
@@ -418,6 +435,7 @@ int main()
 
         if (timeRemaining <= 0) {
             inHyperspace = true;
+            engine->play2D("media/Sounds/fail.wav");
         }
 
         //Input
@@ -457,7 +475,7 @@ int main()
         // 
 
         //Players Ship
-        cout << "X: " << cameraPosition.x << " Y: " << cameraPosition.y << " Z: " << cameraPosition.z << endl;
+        //cout << "X: " << cameraPosition.x << " Y: " << cameraPosition.y << " Z: " << cameraPosition.z << endl;
         model = mat4(1.0f);
         model = translate(model, shipPosition);
         model *= playerRoation;
@@ -584,23 +602,35 @@ int main()
                         //With Station and Drydocks
                         if (lasers[i]->collider.Intersects(stationCollider)) {
                             lasers[i]->hit = true;
+                            engine->play2D("media/Sounds/shield.wav");
                         }
                         else if (lasers[i]->collider.Intersects(drydock_A_Collider)) {
                             lasers[i]->hit = true;
+                            engine->play2D("media/Sounds/shield.wav");
                         }
                         else if (lasers[i]->collider.Intersects(drydock_B_Collider)) {
                             lasers[i]->hit = true;
+                            engine->play2D("media/Sounds/shield.wav");
                         }
                         else {
                             //Check Section 31 Colliders
                             bool section31hit = false;
 
                             for (int j = 0; j < section31.size(); j++) {
-                                if (section31[j] != nullptr) {
+                                if (lasers[i] != nullptr && section31[j] != nullptr) {
                                     if (lasers[i]->collider.Intersects(section31[j]->collider)) {
-                                        lasers[i]->hit = true;
                                         section31hit = true;
                                         section31[j]->health--;
+
+                                        if (section31[j]->health <= 0) {
+                                            engine->play2D("media/Sounds/explosion.wav");
+                                            delete lasers[i];
+                                            lasers[i] = nullptr;
+                                        }
+                                        else {
+                                            lasers[i]->hit = true;
+                                            engine->play2D("media/Sounds/shield.wav");
+                                        }
                                     }
                                 }
                             }
@@ -771,6 +801,7 @@ int main()
         case 0:
             UI0.Draw(Shaders);
             inHyperspace = true;
+            engine->play2D("media/Sounds/complete.wav");
             break;
         case 1:
             UI1.Draw(Shaders);
@@ -839,6 +870,15 @@ void ProcessMouseInput(GLFWwindow* window, float deltaTime)
         cameraYaw += xOffset;
         cameraPitch += yOffset;
 
+        const float maxPitch = 75.0f;
+        const float minPitch = -75.0f;
+        if (cameraPitch > maxPitch) {
+            cameraPitch = maxPitch;
+        }
+        else if (cameraPitch < minPitch) {
+            cameraPitch = minPitch;
+        }
+
         vec3 direction;
         direction.x = cos(radians(cameraYaw)) * cos(radians(cameraPitch));
         direction.y = sin(radians(cameraPitch));
@@ -863,6 +903,7 @@ void ProcessMouseInput(GLFWwindow* window, float deltaTime)
         if (shotCooldown >= 0.5f) {
             shotCooldown = 0.0f;
             lasers.push_back(new Laser(20.0f, shipPosition, -playerRoation));
+            engine->play2D("media/Sounds/laser.wav");
         }
     }
 }
@@ -907,15 +948,15 @@ void ProcessUserInput(GLFWwindow* WindowIn)
         cameraPosition -= movementSpeed * cameraUp;
     }
 
-    //Rolling
-    if (glfwGetKey(WindowIn, GLFW_KEY_Q) == GLFW_PRESS)
+    //Rolling (Works on its own but does not work with camera movement)
+    /*if (glfwGetKey(WindowIn, GLFW_KEY_Q) == GLFW_PRESS)
     {
         cameraUp = vec3(glm::rotate(mat4(1.0f), radians(-rollSpeed), cameraFront) * vec4(cameraUp, 1.0f));
     }
     if (glfwGetKey(WindowIn, GLFW_KEY_E) == GLFW_PRESS)
     {
         cameraUp = vec3(glm::rotate(mat4(1.0f), radians(rollSpeed), cameraFront) * vec4(cameraUp, 1.0f));
-    }
+    }*/
 }
 
 void SetMatrices(Shader& ShaderProgramIn)

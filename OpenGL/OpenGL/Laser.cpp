@@ -48,7 +48,7 @@ glm::vec3 Laser::GetPosition() {
 
 bool Laser::RemoveShield(float deltaTime) {
     shieldTime += deltaTime;
-    if (shieldTime >= 1.0f) {
+    if (shieldTime >= 0.5f) {
         return true;
     }
 
