@@ -163,7 +163,7 @@ Once again the state determines the model displayed.
 
 ### Shuttles and Ships
 
-![Shuttles And Ships](/SampleScreens/shuttles and ships.gif)
+![Shuttles And Ships](/SampleScreens/shuttlesandships.gif)
 
 ### UI Example
 
