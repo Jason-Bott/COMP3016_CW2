@@ -851,15 +851,19 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 
 void ProcessMouseInput(GLFWwindow* window, float deltaTime)
 {
+    //Get cursor position
     double xpos, ypos;
     glfwGetCursorPos(window, &xpos, &ypos);
 
+    //Get position of the center of the window
     float centerX = windowWidth / 2.0f;
     float centerY = windowHeight / 2.0f;
 
+    //Find the distance between cursor and center
     float xOffset = (float)xpos - centerX;
     float yOffset = centerY - (float)ypos;
 
+    //Apply no camera movement if in a deadzone area at the center
     const float deadZone = 10.0f;
     if (!(fabs(xOffset) < deadZone && fabs(yOffset) < deadZone))
     {
@@ -867,9 +871,11 @@ void ProcessMouseInput(GLFWwindow* window, float deltaTime)
         xOffset *= sensitivity;
         yOffset *= sensitivity;
 
+        //Move camera in relavent directions
         cameraYaw += xOffset;
         cameraPitch += yOffset;
 
+        //Limit camera pitch
         const float maxPitch = 75.0f;
         const float minPitch = -75.0f;
         if (cameraPitch > maxPitch) {
@@ -879,6 +885,7 @@ void ProcessMouseInput(GLFWwindow* window, float deltaTime)
             cameraPitch = minPitch;
         }
 
+        //Update camera front based on new direction
         vec3 direction;
         direction.x = cos(radians(cameraYaw)) * cos(radians(cameraPitch));
         direction.y = sin(radians(cameraPitch));
@@ -948,7 +955,7 @@ void ProcessUserInput(GLFWwindow* WindowIn)
         cameraPosition -= movementSpeed * cameraUp;
     }
 
-    //Rolling (Works on its own but does not work with camera movement)
+    //Rolling (Works on its own but does not work with camera movement so not implemented)
     /*if (glfwGetKey(WindowIn, GLFW_KEY_Q) == GLFW_PRESS)
     {
         cameraUp = vec3(glm::rotate(mat4(1.0f), radians(-rollSpeed), cameraFront) * vec4(cameraUp, 1.0f));

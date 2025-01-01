@@ -8,7 +8,21 @@ Section 31 ships that are around a moons space station.
 
 ## Repository Setup
 
+The file titled OpenGL contains my visual studio solution, the source code, for the scene.
+The file titled Section 31 Takeover contains an executable and all needed assets/dependencies to run the scene. (Download this if you wish to play)
+The other files are for this git repository/document.
+
 ## Running The Executable
+
+To run the executable and play you will first need to download the game folder titled Section 31 Takeover.
+Once downloaded if zipped make sure to extract all (Drydock also needs unzipping, see below).
+With the folder find the file named Section 31 Takeover.exe and run it.
+All assets and dependencies needed should be in the folder and the scene should run.
+
+### Zipped Drydock
+
+Take note that in both the source code and executable file the drydock model is zipped.
+If you wish to run the scene with the drydock model please unzip this file and place the drydock.obj in media/drydock where the zip was originally located.
 
 ## Video Link
 
@@ -58,6 +72,14 @@ Section 31 ships that are around a moons space station.
 	- irrKlang.h
 
 ## Game Programming Patterns
+
+### State Pattern
+
+I have used a state pattern in the lasers and section 31 ships in this scene as both of these game objects contain a state differing from their original.
+For the laser it can be in either a state of being a moving laser or the state of having hit the shield of an object in space.
+Depending on the state a different model is displayed and different movement occurs.
+The section 31 ships work similarly but without movement. They are either a ship healthy or an exploded ship.
+Once again the state determines the model displayed.
 
 ## Game Mechanics
 
@@ -118,6 +140,34 @@ Section 31 ships that are around a moons space station.
 	- The elements are updated to show the relevant time or ships remaining.
 
 ## Sample Screens
+
+### Menu Example
+
+![Menu](/SampleScreens/menu.gif)
+
+### Keyboard Movement
+
+![Keyboard Movement](/SampleScreens/movement.gif)
+
+### Mouse Movement
+
+![Mouse Movement](/SampleScreens/mouse.gif)
+
+### Shooting
+
+![Shooting](/SampleScreens/shooting.gif)
+
+### Section 31 Ships
+
+![Section31](/SampleScreens/section31.gif)
+
+### Shuttles and Ships
+
+![Shuttles And Ships](/SampleScreens/shuttles and ships.gif)
+
+### UI Example
+
+![UI](/SampleScreens/ui.gif)
 
 ## Exception Handling
 
